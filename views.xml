@@ -1,0 +1,38 @@
+<openerp>
+    <data>
+        <record id="cate_sel_form_view" model="ir.ui.view">
+            <field name="name">product_selection.form.view</field>
+            <field name="model">cate_test.cate_sel</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="category_id"></field>
+                        <field name="product_ids"></field>
+                        <field name="product_id"></field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="cate_sel_tree_view" model="ir.ui.view">
+            <field name="name">product_selection.tree.view</field>
+            <field name="model">cate_test.cate_sel</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="category_id"></field>
+                    <field name="product_ids"></field>
+                </tree>
+            </field>
+        </record>
+
+        <act_window id="action_product_selection" name="product_selection"
+            res_model="cate_test.cate_sel" view_mode="tree,form" />
+
+        <menuitem id="product_selection_main" name="product selection"></menuitem>
+        
+        <menuitem id="product_selection_main_sub" name="product selection" parent="cate_test.product_selection_main"></menuitem>
+
+        <menuitem id="menu_product_selection" name="product selection" parent="cate_test.product_selection_main_sub"
+                action="action_product_selection"/>
+    </data>
+</openerp>
